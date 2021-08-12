@@ -19,25 +19,26 @@ function App() {
           Accept: "application/json",
         },
       })
-      .then((res) => setJoke(res.data.joke));
-  }, []);
+      .then((res) => setJoke(res.data.joke))
+      .catch((err) => console.log(err));
 
-  useEffect(() => {
     //if you want to use async / await
     // (async () => {
     //   try {
-    //     const response = await axios.get("https://icanhazdadjoke.com/", {
+    //     const res = await axios.get("https://icanhazdadjoke.com/", {
     //       headers: {
     //         Accept: "application/json",
     //       },
     //     });
 
-    //     console.log(response);
+    //     setJoke(res.data.joke);
     //   } catch (err) {
     //     console.log(err);
     //   }
     // })();
+  }, []);
 
+  useEffect(() => {
     axios
       .get("https://icanhazdadjoke.com/", {
         headers: {
