@@ -40,16 +40,6 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://icanhazdadjoke.com/", {
-        headers: {
-          Accept: "application/json",
-        },
-      })
-      .then((res) => setJoke(res.data.joke));
-  }, []);
-
-  useEffect(() => {
-    axios
       .get(
         `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_KEY}`
       )
