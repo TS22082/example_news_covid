@@ -3,3 +3,24 @@
   flex-direction: column;
   align-items: center;
 }
+
+.btn {
+  border-radius: 50px;
+  border: none;
+  padding: 10px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe;
+  font-size: 1.2rem;
+  transition: transform 0.1s ease-in-out;
+}
+
+.btn:hover {
+  box-shadow: 40px 30px 60px #bebebe, -20px -20px 60px #ffffff;
+  transform: translate(0.2px, -1px);
+  cursor: pointer;
+}
+
+.btn:active {
+  box-shadow: 40px 30px 60px #bebebe, -20px -20px 60px #ffffff;
+  transform: translateY(0px);
+}

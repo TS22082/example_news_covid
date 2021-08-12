@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -6,9 +5,7 @@ import Card from "./Card/Card";
 
 function App() {
   const [articles, setArticles] = useState([]);
-
   const [count, setCount] = useState(0);
-
   const [joke, setJoke] = useState("");
 
   useEffect(() => {
@@ -92,9 +89,12 @@ function App() {
 
   return (
     <div className="App">
-      {joke}
-      <h1>Count: {count} </h1>
-      <button onClick={() => setCount(count + 1)}>Click Me</button>
+      <h3>{joke}</h3>
+      <h4>Count: {count} </h4>
+      <button className="btn" onClick={() => setCount(count + 1)}>
+        Click Me
+      </button>
+
       {articles.map((article, index) => (
         <Card
           key={index}

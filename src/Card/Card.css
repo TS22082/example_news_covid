@@ -1,10 +1,10 @@
 .card {
   width: 80%;
-  border-radius: 50px;
   margin-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
+  border-radius: 50px;
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
