@@ -54,7 +54,7 @@ function App() {
           },
         }
       )
-      .then((res) => console.log(res.data))
+      .then((res) => console.log(res.data.parsed[0].food))
       .catch((err) => console.log(err));
   }, []);
 
