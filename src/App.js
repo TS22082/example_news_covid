@@ -23,6 +23,42 @@ function App() {
   }, []);
 
   useEffect(() => {
+    // var options = {
+    //   method: "GET",
+    //   url: "https://edamam-food-and-grocery-database.p.rapidapi.com/parser",
+    //   params: { ingr: "chocolate" },
+    //   headers: {
+    //     "x-rapidapi-key": "b7436eb940msh7eda97d567495aap1562ccjsndf86c1bddee6",
+    //     "x-rapidapi-host": "edamam-food-and-grocery-database.p.rapidapi.com",
+    //   },
+    // };
+
+    // axios
+    //   .request(options)
+    //   .then(function (response) {
+    //     console.log(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.error(error);
+    //   });
+
+    axios
+      .get(
+        "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=chocolate",
+        {
+          headers: {
+            "x-rapidapi-key":
+              "b7436eb940msh7eda97d567495aap1562ccjsndf86c1bddee6",
+            "x-rapidapi-host":
+              "edamam-food-and-grocery-database.p.rapidapi.com",
+          },
+        }
+      )
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
     fetch(
       "https://covid-19-data.p.rapidapi.com/report/country/name?name=Italy&date=2020-04-01",
       {
