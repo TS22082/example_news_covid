@@ -9,9 +9,21 @@ function App() {
 
   const [count, setCount] = useState(0);
 
+  const [joke, setJoke] = useState("");
+
   useEffect(() => {
     console.log("a render happened");
   }, [count]);
+
+  useEffect(() => {
+    axios
+      .get("https://icanhazdadjoke.com/", {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then((res) => setJoke(res.data.joke));
+  }, []);
 
   useEffect(() => {
     axios
@@ -21,6 +33,8 @@ function App() {
       .then((res) => setArticles(res.data.articles))
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     // var options = {
@@ -42,6 +56,7 @@ function App() {
     //     console.error(error);
     //   });
 
+    // same thing dif way
     axios
       .get(
         "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=chocolate",
@@ -77,6 +92,7 @@ function App() {
 
   return (
     <div className="App">
+      {joke}
       <h1>Count: {count} </h1>
       <button onClick={() => setCount(count + 1)}>Click Me</button>
       {articles.map((article, index) => (
