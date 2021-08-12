@@ -23,6 +23,31 @@ function App() {
   }, []);
 
   useEffect(() => {
+    //if you want to use async / await
+    // (async () => {
+    //   try {
+    //     const response = await axios.get("https://icanhazdadjoke.com/", {
+    //       headers: {
+    //         Accept: "application/json",
+    //       },
+    //     });
+
+    //     console.log(response);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // })();
+
+    axios
+      .get("https://icanhazdadjoke.com/", {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then((res) => setJoke(res.data.joke));
+  }, []);
+
+  useEffect(() => {
     axios
       .get(
         `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_KEY}`
@@ -30,8 +55,6 @@ function App() {
       .then((res) => setArticles(res.data.articles))
       .catch((err) => console.log(err));
   }, []);
-
-  useEffect(() => {}, []);
 
   useEffect(() => {
     // var options = {
@@ -82,9 +105,7 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => console.log(data))
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch((err) => console.error(err));
   }, []);
 
   return (
